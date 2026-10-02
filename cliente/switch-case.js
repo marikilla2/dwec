@@ -11,35 +11,35 @@ const DEFAULT_DAY = "Número de día inválido";
  * Cualquier otra opción -> DEFAULT_DAY
  */
 
-let num = 2;
-function diasSemana(num){
-    switch(num){
+let day = 2;
+//Arrow function es igual que function(day){}
+export const getDayOfWeekSC = (day) => {
+    switch(day){
         case 1:
-            console.log("Lunes");
+            return "Lunes";
             break;
         case 2:
-            console.log("Martes");
+            return "Martes";
             break;
         case 3:
-            console.log("Miercoles");
+            return "Miércoles";
             break;
         case 4:
-            console.log("Jueves");
+            return "Jueves";
             break;
         case 5:
-            console.log("Viernes");
+            return "Viernes";
             break;
         case 6:
-            console.log("Sabado");
+            return "Sábado";
             break;
         case 7:
-            console.log("Domingo");
+            return "Domingo";
             break;
         default:
-            console.log(DEFAULT_DAY);
+            return DEFAULT_DAY;
     }
-}
-export const getDayOfWeekSC = (day) => {};
+};
 
 /** Crear una objeto que devuelva los días de la semana en función de un número dado, haciendo uso de switch case
  * 1 -> Lunes
@@ -50,14 +50,28 @@ export const getDayOfWeekSC = (day) => {};
  * 6 -> Sábado
  * 7 -> Domingo
  */
-let dayOfWeek = {};
+
+//Esto es como un diccionario con par clave-valor
+let dayOfWeek = {
+    1: "Lunes",
+    2: "Martes",
+    3: "Miércoles",
+    4: "Jueves",
+    5: "Viernes",
+    6: "Sábado",
+    7: "Domingo"
+};
 
 /**
  * Crea una función que haga uso del objeto que has creado arriba y que además devuelva DEFAULT_DAY si se introduce
  * un valor fuera del rango 1 - 7
  *
  */
-export const getDayOfWeekObject = (day) => {};
+
+//Se podría haber hecho con un if-else (no lo va a exigir con operador ternario)
+export const getDayOfWeekObject = (day) => {
+    return dayOfWeek[day] || DEFAULT_DAY;
+};
 
 /************************************************ */
 
@@ -71,30 +85,49 @@ const DEFAULT_OPERARTOR_ERROR = "Operator invalid";
 
 let num1 = 2;
 let num2 = 5;
-function calculadoraBasica(num1, num2){
-    switch(num1,num2){
-        case 1:
-            num1 + num2;
-        case 2:
-            num1 - num2;
-        case 3:
-            num1 * num2;
-        case 4:
-            num1 / num2;
-    }
-}
 
-export const simpleCalculatorSC = (operartor, num_1, num_2) => {};
+export const simpleCalculatorSC = (operator, num1, num2) => {
+    switch (operator) {
+        case "+":
+            return num1 + num2;
+
+        case "-":
+            return num1 - num2;
+
+        case "*":
+            return num1 * num2;
+
+        case "/":
+            return num1 / num2;
+
+        default:
+            return DEFAULT_OPERARTOR_ERROR;
+    }
+};
 
 /**
  * Crea un objeto con los operadores básicos +, -, *, ,/
  * Cada propieda del objeto debe realizar la operación correspodiente
  */
-let calculatorObject = {};
+
+let calculatorObject = {
+    
+    "+": (num1, num2) => num1 + num2,
+    "-": (num1, num2) => num1 - num2,
+    "*": (num1, num2) => num1 * num2,
+    "/": (num1, num2) => num1 / num2
+};
 
 /**
  * Crea una función que haga uso del objeto que has creado arriba y que además devuelva DEFAULT_OPERARTOR_ERROR
  * si se introduce cualquier cosa que sea diferente a "+", "-", "*", "/"
  *
  */
-export const simpleCalculatorObject = (operartor, num_1, num_2) => {};
+
+export const simpleCalculatorObject = (operator, num_1, num_2) => {
+    if (calculatorObject[operator]) {
+        return calculatorObject[operator](num_1, num_2);
+    }
+
+    return DEFAULT_OPERARTOR_ERROR;
+};
