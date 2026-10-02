@@ -110,10 +110,11 @@ export const simpleCalculatorSC = (operator, num1, num2) => {
  * Cada propieda del objeto debe realizar la operación correspodiente
  */
 
+//Cuatro opciones del objeto literal con función flecha (arrow function)
 let calculatorObject = {
     
-    "+": (num1, num2) => num1 + num2,
-    "-": (num1, num2) => num1 - num2,
+    "+": (num1, num2) => num1 + num2, //Equivale a function(num1,num2) {return num1 + num2};
+    "-": (num1, num2) => num1 - num2, 
     "*": (num1, num2) => num1 * num2,
     "/": (num1, num2) => num1 / num2
 };
@@ -124,6 +125,7 @@ let calculatorObject = {
  *
  */
 
+//Se puede hacer también con un operador ternario
 export const simpleCalculatorObject = (operator, num_1, num_2) => {
     if (calculatorObject[operator]) {
         return calculatorObject[operator](num_1, num_2);
@@ -131,3 +133,7 @@ export const simpleCalculatorObject = (operator, num_1, num_2) => {
 
     return DEFAULT_OPERARTOR_ERROR;
 };
+
+/*
+ *  return calculatorObject[operator] ? calculatorObject[operator](num1,num2) : DEFAULT_OPERARTOR_ERROR;
+ */
