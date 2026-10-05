@@ -9,11 +9,11 @@ console.log("%cThis is an informational message", estilo2);
 
 const estilo3 = "color: yellow; font-size: 16px";
 
-console.log("%cThis is a warning. Be cautious", estilo3);
+console.warn("%cThis is a warning. Be cautious", estilo3);
 
 const estilo4 = "color: red; font-size: 16px";
 
-console.log("%cError! Something went wrong", estilo4);
+console.error("%cError! Something went wrong", estilo4);
 
 const datos = [
     {name: 'John', age: 30, city: 'New York'},
