@@ -15,3 +15,9 @@ const estilo4 = "color: red; font-size: 16px";
 
 console.log("%cError! Something went wrong", estilo4);
 
+const datos = [
+    {name: 'John', age: 30, city: 'New York'},
+    {name: 'Jane', age: 25, city: 'San Francisco'},
+    {name: 'Bob', age: 40, city: 'Chicago'}
+];
+console.table(datos);
