@@ -141,7 +141,8 @@ export const getBirthdayOfDirector = () => {
  * @returns the last principal films of director
  */
 export const getLastPrincipalOfDirector = () => {
-  return movie.director.notableFilmography[2];
+  let lastFilmIndex = movie.director.notableFilmography.length;
+  return movie.director.notableFilmography[lastFilmIndex - 1];
 };
 
 /**
