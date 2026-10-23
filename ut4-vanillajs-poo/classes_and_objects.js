@@ -77,35 +77,63 @@ class Course {
   }
 
   getInfo() {
-    return `Title: ${title} Category: ${category} Duration: ${duration} Price: ${price}`;
+    return `Title: ${this.title} Category: ${this.category} Duration: ${this.duration} Price: ${this.price}`;
   }
 
   getStudentId(id) {
-    let valorEncontrado = course.find((student) => student.id === id);
-    console.log(valorEncontrado);
+    let valorEncontrado = this.students.find((student) => student.id === id);
     return valorEncontrado;
   }
 
   getPassedStudents() {
-    let arrayAprobados = course.filter((student) => student.grade > 5);
+    let arrayAprobados = this.students.filter((student) => student.grade > 5);
     return arrayAprobados;
   }
 
   getCompletedStudents() {
-    let arrayCompletados = course.filter(
+    let arrayCompletados = this.students.filter(
       (student) => student.completed == true,
     );
     return arrayCompletados;
   }
   getStudentNames() {
-    let arrayConMap = course.map((student) => student.name);
+    let arrayConMap = this.students.map((student) => student.name);
     return arrayConMap;
+  }
+  getStudentSummary() {
+    return this.students.map((student) => ({
+      name: student.name,
+      grade: student.grade,
+      completed: student.completed,
+    }));
+  }
+  getStudentsAboveGrade(minGrade) {
+    return this.students.filter((student) => student.grade > minGrade);
+  }
+
+  getAverageGrade() {
+    if (this.students.length === 0) return 0;
+
+    const sumGrade = this.students.reduce(
+      (total, student) => total + student.grade,
+      0,
+    );
+    return sumGrade / this.students.length;
+  }
+
+  removeStudent(id) {
+    this.students = this.students.filter((student) => student.id !== id);
+    return this.students;
   }
 }
 
-let course1 = new Course();
+let course1 = new Course(courseData);
 course1.getInfo();
 console.log(course1.getStudentId(3));
 console.log(course1.getPassedStudents());
 console.log(course1.getCompletedStudents());
 console.log(course1.getStudentNames());
+console.log(course1.getStudentSummary());
+console.log(course1.getStudentsAboveGrade(6));
+console.log(course1.getAverageGrade());
+console.log(course1.removeStudent(1));
