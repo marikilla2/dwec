@@ -55,3 +55,57 @@ const courseData = {
     },
   ],
 };
+
+class Course {
+  id;
+  title;
+  category;
+  duration;
+  price;
+  active;
+  instructor;
+  students;
+  constructor(course) {
+    this.id = course.id;
+    this.title = course.title;
+    this.category = course.category;
+    this.duration = course.duration;
+    this.price = course.price;
+    this.active = course.active;
+    this.instructor = course.instructor;
+    this.students = course.students;
+  }
+
+  getInfo() {
+    return `Title: ${title} Category: ${category} Duration: ${duration} Price: ${price}`;
+  }
+
+  getStudentId(id) {
+    let valorEncontrado = course.find((student) => student.id === id);
+    console.log(valorEncontrado);
+    return valorEncontrado;
+  }
+
+  getPassedStudents() {
+    let arrayAprobados = course.filter((student) => student.grade > 5);
+    return arrayAprobados;
+  }
+
+  getCompletedStudents() {
+    let arrayCompletados = course.filter(
+      (student) => student.completed == true,
+    );
+    return arrayCompletados;
+  }
+  getStudentNames() {
+    let arrayConMap = course.map((student) => student.name);
+    return arrayConMap;
+  }
+}
+
+let course1 = new Course();
+course1.getInfo();
+console.log(course1.getStudentId(3));
+console.log(course1.getPassedStudents());
+console.log(course1.getCompletedStudents());
+console.log(course1.getStudentNames());
