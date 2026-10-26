@@ -1,11 +1,11 @@
-import { Books } from "./oop";
+import { Books } from "./oop.js";
 
 describe("OOP", () => {
   it("should gets title, author and published for La vida del lazarillo de Tormes", () => {
     let book_1 = new Books(
       "La vida del lazarillo de Tormes",
       "Anonymous",
-      "1554"
+      "1554",
     );
     expect(book_1.title).toBe("La vida del lazarillo de Tormes");
     expect(book_1.author).toBe("Anonymous");

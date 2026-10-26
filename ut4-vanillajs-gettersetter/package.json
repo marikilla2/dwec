@@ -1,0 +1,16 @@
+{
+  "name": "ut4-vanillajs-gettersetter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "oop.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "jest": "^30.5.2"
+  }
+}
