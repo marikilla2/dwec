@@ -96,10 +96,12 @@ class Course {
     );
     return arrayCompletados;
   }
+
   getStudentNames() {
     let arrayConMap = this.students.map((student) => student.name);
     return arrayConMap;
   }
+
   getStudentSummary() {
     return this.students.map((student) => ({
       name: student.name,
@@ -107,6 +109,7 @@ class Course {
       completed: student.completed,
     }));
   }
+
   getStudentsAboveGrade(minGrade) {
     return this.students.filter((student) => student.grade > minGrade);
   }
@@ -137,3 +140,5 @@ console.log(course1.getStudentSummary());
 console.log(course1.getStudentsAboveGrade(6));
 console.log(course1.getAverageGrade());
 console.log(course1.removeStudent(1));
+
+//Javascript solo puede tener 1 constructor y se añaden parámetros con los setters
