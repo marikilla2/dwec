@@ -126,6 +126,8 @@ class Course {
   getAverageGrade() {
     if (this.students.length === 0) return 0;
 
+    //El 0 solo se usa una vez y el acumulador adquiere la nota del estudiante en la segunda vuelta,
+    //y así sucesivamente con todos los estudiantes
     const sumGrade = this.students.reduce(
       (acumulador, student) => acumulador + student.grade,
       0,
