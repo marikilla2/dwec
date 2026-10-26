@@ -76,14 +76,21 @@ class Course {
     this.students = course.students;
   }
 
+  //Importante poner this para referirse a la propia instancia de la clase
+
   getInfo() {
     return `Title: ${this.title} Category: ${this.category} Duration: ${this.duration} Price: ${this.price}`;
   }
+
+  //El find solo entiende el verdadero o falso, si encuentra el estudiante con ese id lo devuelve
+  //Devuelve un solo valor
 
   getStudentId(id) {
     let valorEncontrado = this.students.find((student) => student.id === id);
     return valorEncontrado;
   }
+
+  //El filter devuelve un array con la condición dada
 
   getPassedStudents() {
     let arrayAprobados = this.students.filter((student) => student.grade > 5);
@@ -102,6 +109,8 @@ class Course {
     return arrayConMap;
   }
 
+  //El summary devuelve un array con el nombre, la nota y si está completado.
+
   getStudentSummary() {
     return this.students.map((student) => ({
       name: student.name,
@@ -118,7 +127,7 @@ class Course {
     if (this.students.length === 0) return 0;
 
     const sumGrade = this.students.reduce(
-      (total, student) => total + student.grade,
+      (acumulador, student) => acumulador + student.grade,
       0,
     );
     return sumGrade / this.students.length;
