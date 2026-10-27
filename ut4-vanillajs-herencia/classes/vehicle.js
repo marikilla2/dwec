@@ -1,3 +1,5 @@
+import { response } from "../vehicles-data.js";
+
 export class Vehicle {
   #id;
   #type;

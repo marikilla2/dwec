@@ -1,6 +1,6 @@
 import { Car } from "./classes/car.js";
 import { Motorcycle } from "./classes/motorcycle.js";
-import { Van } from "./classes/van";
+import { Van } from "./classes/van.js";
 let coche = new Car({
   id: 1,
   type: "car",
