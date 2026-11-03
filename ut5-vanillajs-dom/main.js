@@ -2,16 +2,15 @@ import * as All from "./utils.js";
 
 console.log("--------------------------------------------------");
 
+// Imprimir colecciones de nodos (NodeList)
 console.log(All.getAllChipClass());
-
 console.log(All.getAllParagraphs());
-
 console.log(All.getAllListItems());
-
 console.log(All.getAllOptionFromThemeSelect());
 
 console.log("--------------------------------------------------");
 
+// Recorrer e imprimir contenido de texto de las colecciones
 All.getAllChipClass().forEach((value) => {
   console.log(value.textContent);
 });
@@ -28,17 +27,9 @@ All.getAllOptionFromThemeSelect().forEach((value) => {
   console.log(value.textContent);
 });
 
-// Estos dos no se pueden hacer porque devuelven un solo valor
-// All.getUserFromForm().forEach((value) => {
-//   console.log(value);
-// });
+console.log("--------------------------------------------------");
 
-// All.getMailFromForm().forEach((value) => {
-//   console.log(value);
-// });
-
-//Una forma de hacerlo para que funcionen algunas funciones
-
+// Elementos únicos: Se comprueba su existencia antes de acceder a su propiedad .value
 const userEl = All.getUserFromForm();
 if (userEl) console.log(userEl.value);
 
@@ -54,12 +45,13 @@ if (themeOption) console.log(themeOption.value);
 const colorRadio = All.getColorSelectedRadio();
 if (colorRadio) console.log(colorRadio.value);
 
-//A partir de aquí no sale como debería
+console.log("--------------------------------------------------");
 
+// Imprimir directamente los elementos únicos devueltos
 console.log(All.getUserFromForm());
-
 console.log(All.getMailFromForm());
 
+// Colecciones (NodeList): SÍ se pueden recorrer con .forEach()
 All.getAllColorRadios().forEach((value) => {
   console.log(value);
 });
@@ -72,20 +64,10 @@ All.getAllOptionsFromCursosSelect().forEach((value) => {
   console.log(value);
 });
 
-All.getTextArea().forEach((value) => {
-  console.log(value);
-});
-
-All.getThemeSelectedOption().forEach((value) => {
-  console.log(value);
-});
-
-All.getColorSelectedRadio().forEach((value) => {
-  console.log(value);
-});
-
-All.getCheckBoxSelected().forEach((value) => {
-  console.log(value);
-});
+// Elementos únicos (querySelector): NO usan .forEach(), se imprimen directamente
+console.log(All.getTextArea());
+console.log(All.getThemeSelectedOption());
+console.log(All.getColorSelectedRadio());
+console.log(All.getCheckBoxSelected());
 
 console.log("--------------------------------------------------");
