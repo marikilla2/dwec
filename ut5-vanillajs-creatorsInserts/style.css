@@ -1,0 +1,18 @@
+html,
+body {
+  font-family: "Verdana", sans-serif;
+}
+h1{
+  font-family: "Segoe UI", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+img {
+  width: 100%;
+}
