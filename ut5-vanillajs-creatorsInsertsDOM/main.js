@@ -8,6 +8,9 @@ p.textContent =
 
 const form = document.createElement("form");
 
+//Los label no llevan otras propiedades como type, id, name, max
+// porque son etiquetas y las etiquetas solo llevan contenido de texto
+
 const label_datemax = document.createElement("label");
 
 label_datemax.textContent = "Enter a date before 1980-01-01: ";
@@ -20,12 +23,15 @@ const label_quantity = document.createElement("label");
 
 label_quantity.textContent = "Quantity (between 1 and 5): ";
 
+//Los inputs en cambio normalmente llevan propiedades como id, type, max
+// porque a través de ellos el usuario introduce datos por pantalla
+
 const input_datemax = document.createElement("input");
-input_datemax.type = "date";
 input_datemax.id = "datemax";
 input_datemax.type = "datemax";
 input_datemax.max = "1979-12-31";
 
+input_datemax.htmlFor = "datemax";
 const input_datemin = document.createElement("input");
 input_datemin.type = "date";
 input_datemin.id = "datemin";
@@ -44,6 +50,8 @@ input_quantity.htmlFor = "quantity";
 const input_submit = document.createElement("input");
 input_submit.type = "submit";
 input_submit.value = "Submit";
+
+//Aquí añadimos cada etiqueta, input y br para hacer cada componente del formulario
 
 form.append(label_datemax, input_datemax, br, br.cloneNode());
 form.append(label_datemin, input_datemin, br.cloneNode(), br.cloneNode());
