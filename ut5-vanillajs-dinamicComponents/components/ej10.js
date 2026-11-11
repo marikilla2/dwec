@@ -17,7 +17,7 @@ export const ej10 = () => {
     nombre.textContent = curso.nombre;
 
     const duracion = document.createElement("span");
-    duracion.textContent = ` – ${curso.duracion} horas`;
+    duracion.textContent = `${curso.duracion} horas`;
 
     li.append(nombre, duracion);
     ol.append(li);

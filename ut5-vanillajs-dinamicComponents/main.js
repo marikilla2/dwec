@@ -14,5 +14,5 @@ const app = document.querySelector("#app");
 const ejercicios = [ej1, ej2, ej3, ej4, ej5, ej6, ej7, ej8, ej9, ej10];
 
 ejercicios.forEach((ejercicio) => {
-  app.append(ejercicio());
+  app.append(ejercicio(), document.createElement("hr"));
 });
