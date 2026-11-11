@@ -1,5 +1,6 @@
 export const ej8 = () => {
   const contenedor = document.createElement("div");
+  contenedor.classList.add("ej8-contenedor"); // ←
 
   const tecnologias = [
     { valor: "html", texto: "HTML" },
@@ -10,6 +11,7 @@ export const ej8 = () => {
 
   tecnologias.forEach((tecnologia, indice) => {
     const div = document.createElement("div");
+    div.classList.add("ej8-opcion"); // ←
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";

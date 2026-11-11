@@ -2,10 +2,12 @@ export const ej6 = () => {
   const label = document.createElement("label");
   label.textContent = "Lenguaje de programación";
   label.htmlFor = "lenguaje";
+  label.classList.add("ej6-etiqueta"); // ←
 
   const select = document.createElement("select");
   select.id = "lenguaje";
   select.name = "lenguaje";
+  select.classList.add("ej6-selector"); // ←
 
   const lenguajes = [
     { valor: "", texto: "Selecciona un lenguaje" },
@@ -30,6 +32,7 @@ export const ej6 = () => {
   });
 
   const container = document.createElement("div");
+  container.classList.add("ej6-contenedor"); // ←
   container.append(label, select);
   return container;
 };

@@ -1,5 +1,6 @@
 export const ej3 = () => {
   const contenedor = document.createElement("div");
+  contenedor.classList.add("ej3-contenedor"); // ←
 
   const botones = [
     { id: "guardar", texto: "Guardar" },
@@ -13,6 +14,7 @@ export const ej3 = () => {
     boton.id = datos.id;
     boton.type = "button";
     boton.textContent = datos.texto;
+    boton.classList.add("ej3-boton", `ej3-${datos.id}`); // ← la común + la de su color
 
     contenedor.append(boton);
   });

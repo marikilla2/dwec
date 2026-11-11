@@ -1,10 +1,13 @@
 export const ej7 = () => {
   const fieldset = document.createElement("fieldset");
+  fieldset.classList.add("ej7-fieldset"); // ←
 
   const legend = document.createElement("legend");
   legend.textContent = "Turno de clase";
+  legend.classList.add("ej7-leyenda"); // ←
 
-  fieldset.append(legend);
+  const opciones = document.createElement("div"); // ← nuevo: agrupa las 3 opciones
+  opciones.classList.add("ej7-opciones"); // ←
 
   const turnos = [
     { valor: "manana", texto: "Mañana" },
@@ -14,6 +17,7 @@ export const ej7 = () => {
 
   turnos.forEach((turno, indice) => {
     const div = document.createElement("div");
+    div.classList.add("ej7-opcion"); // ←
 
     const radio = document.createElement("input");
     radio.type = "radio";
@@ -30,8 +34,9 @@ export const ej7 = () => {
     label.textContent = turno.texto;
 
     div.append(radio, label);
-    fieldset.append(div);
+    opciones.append(div); // ← antes era fieldset.append(div)
   });
 
+  fieldset.append(legend, opciones); // ← la leyenda y después el grupo
   return fieldset;
 };
